@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html> 
+    <title>Parkir App</title>
+<script>
+    // muncul mesin meminta input user dia masuk jam berapa (1-24)
+    // lalu mesin meminta input user dia keluar jam berapa (1-24)
+    // keluar itu harus lebih besar dari masuk
+    // hitung berapa lama terus untuk biaya parkirnya itu 1000 per jam
+    // alert berapa lama parkirnya terus untuk biaya parkirnya itu 1000 per jam
+
+    var BiayaParkir = 1000
+    var JamMasuk = prompt('Silahkan input jam masuk anda: (1-24)') 
+    var JamKeluar = prompt('Silahkan input jam keluar anda: (1-24)')
+    var DurasiParkir = (JamKeluar - JamMasuk)
+    var TotalBiaya = BiayaParkir*DurasiParkir
+    alert(`Durasi parkir anda adalah ${DurasiParkir} jam \nTotal biaya parkir anda adalah ${TotalBiaya}`)
+
+
+</script>
+</html>

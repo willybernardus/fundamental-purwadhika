@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<title>Market v.1.2</title>
+<script>
+    // Lanjutan pr market v.1.1
+    // Apel @ 10.000
+    // Anggur @ 15.000
+    // Jeruk @20.000
+    // Total harga tiap buah?
+    // Total harga keseluruhan?
+    // Market v.1.2
+
+
+    // Harga satuan
+    var HargaApel = 10000
+    var HargaAnggur = 15000
+    var HargaJeruk = 20000
+    // Stock produk
+    var StockApel = 5
+    var StockAnggur = 3
+    var StockJeruk = 8
+    // Welcoming
+    alert('Selamat datang di toko kami')
+    // Daftar Harga
+    alert(`Daftar harga buah adalah:\n1. Apel= ${HargaApel} \n2. Anggur= ${HargaAnggur} \n3. Jeruk= ${HargaJeruk}`)
+    // Apel
+    var InputApel = prompt(`Silahkan masukan jumlah apel:`)
+    if (InputApel > StockApel){
+        alert(`Jumlah Apel tidak mencukupi! Maka quantity diubah menjadi ${StockApel}`)
+        InputApel=StockApel
+    }
+    // var TotalHargaApel = HargaApel*InputApel 
+    // alert(`Total harga apel adalah ${TotalHargaApel}`)
+    // Anggur
+    var InputAnggur = prompt(`Silahkan masukan jumlah anggur:`)
+    if (InputAnggur > StockAnggur){
+        alert(`Jumlah Anggur tidak mencukupi! Maka quantity diubah menjadi ${StockAnggur}`)
+        InputAnggur=StockAnggur
+    }
+    // var TotalHargaAnggur = HargaAnggur*InputAnggur
+    // alert(`Total harga Anggur adalah ${TotalHargaAnggur}`)
+    // Jeruk
+    var InputJeruk = prompt(`Silahkan masukan jumlah jeruk:`)
+    if (InputJeruk > StockJeruk){
+        alert(`Jumlah Jeruk tidak mencukupi! Maka quantity diubah menjadi ${StockJeruk}`)
+        InputJeruk=StockJeruk
+    }
+    // var TotalHargaJeruk = HargaJeruk*InputJeruk
+    // alert(`Total harga jeruk adalah ${TotalHargaJeruk}`)
+
+    // Total harga seluruh buah
+    var TotalHarga = (InputApel*HargaApel) + (InputAnggur*HargaAnggur) + (InputJeruk*HargaJeruk)
+    var NominalUang = prompt(`Total harga seluruh buah adalah ${TotalHarga} \nSilahkan masukan nominal uang anda:`)
+    if(NominalUang > TotalHarga){
+        alert(`Kembalian anda adalah ${NominalUang - TotalHarga}`)
+    }else if(NominalUang == TotalHarga){
+        alert('Terima kasih uang anda pas')
+    }else{
+        alert('Maaf bosque uang kurang')
+    }
+    console.log(NominalUang)
+
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let User = [
+            { username: 'dino', password: 'abc' },
+            { username: 'willy', password: 'def' },
+
+        ]
+        alert('Selamat datang!')
+        let pilihMenu = prompt('Pilih menu: \n1. regis \n2. login')
+        do {
+            var calFil = (val) => {
+                return val
+            }
+            if (pilihMenu == 2) {
+                let username = prompt('Masukan username')
+                let password = prompt('Masukan password')
+                let dataUser = null
+                for (let i = 0; i < User.length; i++) {
+                    if (user[i].username == username && user[i].password == password) {
+                        dataUser = user[i]
+                    }
+                }
+                if (result) {
+                    alert('Anda berhasil login')
+                } else {
+                    alert('Anda gagal login')
+                }
+
+            } else {
+
+            }
+            var kembalikeUtama = confirm('kembali ke menu Utama')
+        } while (kembalikeUtama) {
+            prompt('Pilih menu: \n1. regis \n2. login')
+        }
+
+
+
+
+
+
+
+
+
+
+        // do {
+        //     let pilihMenu = prompt('Pilih menu: \n1. regis \n2. login')
+
+        //     if (pilihMenu == 2) {
+        //         let username = prompt('Masukan username')
+        //         let password = prompt('Masukan password')
+        //         let dataUser = null
+        //         for (let i = 0; i < User.length; i++) {
+        //             if (user[i].username == username && user[i].password == password) {
+        //                 dataUser = user[i]
+        //             }
+        //         }
+        //         if (result) {
+        //             alert('Anda berhasil login')
+        //         } else {
+        //             alert('Anda gagal login')
+        //         }
+
+        //     } else {
+
+        //     }
+        //     var kembalikeUtama = confirm('kembali ke menu Utama')
+        // } while (kembalikeUtama) {
+        //     prompt('Pilih menu: \n1. regis \n2. login')
+        // }
+
+
+
+
+    </script>
+</body>
+
+</html>

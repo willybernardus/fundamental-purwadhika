@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan</title>
+</head>
+
+<body>
+    <center>
+        <h1>FORM</h1>
+        Name: &nbsp; &nbsp; &nbsp; &nbsp;<input type="text" placeholder="product name" id="productname">
+        <br><br>
+        Price: &nbsp; &nbsp; &nbsp; &nbsp; <input type="number" placeholder="price" id="price">
+        <br><br>
+        Condition: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+        <input type="radio" name="condition" value="New"> New
+        <input type="radio" name="condition" value="Second"> Second
+        <br><br>
+        Warehouse: &nbsp; &nbsp; &nbsp; &nbsp;
+        <select id="warehouse">
+            <option value="JKT">JKT</option>
+            <option value="BDG">BDG</option>
+            <option value="SBY">SBY</option>
+        </select>
+        <br><br>
+        Courier:
+        <input type="checkbox" name="courier" value='JNE'> JNE
+        <input type="checkbox" name="courier" value="J&T"> J&T
+        <input type="checkbox" name="courier" value="Ninja"> Ninja
+        <br><br>
+        <button onclick="submitData()">Click here!</button>
+        <br><br>
+        <p id="result">Result</p>
+
+    </center>
+</body>
+<script>
+
+    function submitData() {
+
+        var productname = document.getElementById('productname').value
+        var price = document.getElementById('price').value
+        var kondisi
+        var kondisiInput = document.getElementsByName('condition')
+        if (kondisiInput[0].checked) {
+            kondisi = kondisiInput[0].checked
+        } else if (kondisiInput[1].checked) {
+            kondisi = kondisiInput[1].checked
+        }
+        var warehouse = document.getElementById('warehouse').value
+
+        var courierInput = document.getElementsByName('courier')
+        var courier = []
+        for (var i = 0; i < courierInput.length; i++) {
+            if (courierInput[i].checked) {
+                courier.push(courierInput[i].value)
+            }
+        }
+        let result = ''
+        result += `Name: ${productname}<br> Price: ${price}<br> Condition: ${kondisi}<br> Warehouse: ${warehouse}<br> Courier: ${courier}`
+
+        document.getElementById('result').innerHTML = result
+    }
+
+
+</script>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            padding: 5px;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Input type</h1>
+        <!-- HTML adalah wadah yang menampung data, yang mengambil dan memproses adalah javascript -->
+        username:
+        <input type="text" placeholder="username" id="username">
+        <br><br>
+        <!-- fungsi name untuk mengelompokan -->
+        Sex: <br>
+        <!-- untuk radio agar bekerja name harus sama -->
+        Man <input type='radio' name='sex'>
+        Woman <input type='radio' name='sex'>
+        <br><br>
+        eCommerce
+        <br>
+        Shopee <input type="checkbox" name="ecom">
+        Tokopedia <input type="checkbox" name="ecom">
+        JD <input type="checkbox" name="ecom">
+        <br><br>
+        Pengiriman
+        <select name="" id="kirim">
+            <option value="" hidden selected>pilih kurir</option>
+            <option value="JNE">JNE</option>
+            <option value="J&T">J&T</option>
+        </select>
+        <br><br>
+        <input type="button" value="submit" onclick="submitData()">
+        <br>
+        <br>
+        <table>
+            <!-- tr itu tabble row -->
+            <thead>
+                <tr>
+                    <!-- th itu tabble head -->
+                    <th>No.</th>
+                    <th>username</th>
+                    <th>kelamin</th>
+                    <th>List eCommerce</th>
+                    <th>kurir</th>
+                </tr>
+            </thead>
+            <tbody id='renderData'>
+
+            </tbody>
+
+            <!-- <tr>
+                <td>1</td>
+                <td>dino</td>
+                <td>Men</td>
+                <td>Tokped</td>
+                <td>JNE</td>
+            </tr> -->
+        </table>
+
+    </center>
+
+</body>
+<script>
+    // dom ini adalah Document Object Model. Jadi html ini disebut dom dalam javascript
+
+
+    // alasan ditaruh didalam function
+    var sexes = ['Man,Woman']
+    var checkValue = ['Shopee', 'Tokopedoa', 'JD']
+    var Kurir = ['JNE', 'J&T']
+    var data = [
+        { username: 'dino', sex: 'Man', ListCommerce: ['Tokopedia'], kirim: 'J&T' },
+        { username: 'alby', sex: 'Man', ListCommerce: ['Shopee', 'Tokopedia'], kirim: 'J&T' },
+        { username: 'ommi', sex: 'Man', ListCommerce: ['Shopee', 'Tokopedia'], kirim: 'J&T' }
+
+    ]
+
+    const printData = () => {
+
+        var result = ''
+        for (var i = 0; i < data.length; i++) {
+            result += `
+            <tr>
+                <td>${i + 1}</td>
+                <td>${data[i].username}</td>
+                <td>${data[i].sex}</td>
+                <td>${data[i].ListCommerce}</td>
+                <td>${data[i].kirim}</td>
+            </tr>`
+        }
+        // result += `
+        //     <tr>
+        //         <td>${1 + 1}</td>
+        //         <td>${data[1].username}</td>
+        //         <td>${data[1].sex}</td>
+        //         <td>${data[1].ListCommerce}</td>
+        //         <td>${data[1].kirim}</td>
+        //     </tr>
+
+        // `
+        document.getElementById('renderData').innerHTML = result
+    }
+    printData()
+
+    function submitData() {
+        // kl elementpakeS artinya jamak itu adalah sebuah array
+        // cara mengambil value by tag
+        // let username = document.getElementsByTagName('input')[0].value
+        // cara mengambil by id
+        let username = document.getElementById('username').value
+        // khusus radio dan checkbox punya property yang namanya checked
+
+        let sex
+        let kiri = document.getElementsByName('sex')[0].checked
+        let kanan = document.getElementsByName('sex')[1].checked
+        if (kiri) {
+            sex = 'Man'
+        } else {
+            sex = 'Woman'
+        }
+
+        let ecom = []
+        let ecomInput = document.getElementsByName('ecom')
+        ecomInput.forEach((val, index) => {
+            if (val.checked) {
+                console.log(index)
+                ecom.push(checkValue[index])
+            }
+        })
+        console.log(ecom)
+
+        var kirim = document.getElementById('kirim').value
+        console.log(kirim)
+
+        var dataInput = { username: username, sex: sex, ListCommerce: ecom, kirim: kirim }
+        data.push(dataInput)
+        printData()
+        document.getElementById('username').value = ''
+        document.getElementById('kirim').value = ''
+        // bisa dilooping
+        document.getElementsByName('sex')[0].checked = false
+        document.getElementsByName('sex')[1].checked = false
+        // bisa dilooping
+        document.getElementsByName('ecom')[0].checked = false
+        document.getElementsByName('ecom')[1].checked = false
+        document.getElementsByName('ecom')[2].checked = false
+
+        // console.log(sex, 'Hasil')
+        // console.log(kanan, 'kanan')
+
+        // console.log(username, 'dapat dari input user')
+
+
+    }
+
+</script>
+
+</html>

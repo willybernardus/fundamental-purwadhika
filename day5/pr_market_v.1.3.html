@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<title>Market v.1.3</title>
+<body>
+<script>
+   // tampilkan informasi stock saat user menginput qty
+   // user akan diminta input ulang saat qty melebihi stock
+   // user akan diminta input ulang saat uang kurang dari seharusnya dan menampilkan kembalian jika user membayar lebih
+
+
+    // Harga satuan
+    var HargaApel = 10000
+    var HargaAnggur = 15000
+    var HargaJeruk = 20000
+    // Stock produk
+    var StockApel = 5
+    var StockAnggur = 10
+    var StockJeruk = 15
+    // Welcoming
+    alert('Selamat datang di toko kami! 🍓')
+    // Daftar Harga
+    alert(`Daftar harga masing-masing buah adalah:\n1. 🍎 Apel= Rp ${HargaApel}  \n2. 🍇 Anggur= Rp ${HargaAnggur}  \n3. 🍊 Jeruk= Rp ${HargaJeruk} `)
+    // Apel
+    var InputApel = prompt(`Silahkan masukan jumlah apel yang anda inginkan:\nStock apel yang tersedia saat ini adalah ${StockApel}`)
+    while(InputApel > StockApel){
+        alert('Jumlah apel yang anda masukan terlalu banyak!')
+        var InputApel = prompt(`Silahkan masukan jumlah apel yang anda inginkan:\nStock apel yang tersedia saat ini adalah ${StockApel}`)
+    }
+    // Anggur
+    var InputAnggur = prompt(`Silahkan masukan jumlah anggur yang anda inginkan:\nStock anggur yang tersedia saat ini adalah ${StockAnggur}`)
+    while(InputAnggur > StockAnggur){
+        alert('Jumlah anggur yang anda masukan terlalu banyak!')
+        var InputAnggur = prompt(`Silahkan masukan jumlah anggur yang anda inginkan:\nStock anggur yang tersedia saat ini adalah ${StockAnggur}`)
+    }
+    // Jeruk
+    var InputJeruk = prompt(`Silahkan masukan jumlah jeruk yang anda inginkan:\nStock jeruk yang tersedia saat ini adalah ${StockJeruk}`)
+    while(InputJeruk > StockJeruk){
+        alert('Jumlah jeruk yang anda masukan terlalu banyak!')
+        var InputJeruk = prompt(`Silahkan masukan jumlah jeruk yang anda inginkan:\nStock jeruk yang tersedia saat ini adalah ${StockJeruk}`)
+    }
+    // Total harga seluruh buah
+    var TotalHarga = (InputApel*HargaApel) + (InputAnggur*HargaAnggur) + (InputJeruk*HargaJeruk)
+    var NominalUang = prompt(`Total harga seluruh buah adalah Rp ${TotalHarga} \nMasukan nominal uang anda:`)
+    while(NominalUang < TotalHarga){
+        alert('Maaf bosque uang kurang! \nSilahkan masukan jumlah yang benar')
+        var NominalUang = prompt(`Total harga seluruh buah adalah Rp ${TotalHarga} \nSilahkan masukan nominal uang anda:`)      
+    }
+    if(NominalUang == TotalHarga){
+            alert('Terima kasih sudah berbelanja di toko kami \nUang anda pas!')
+        }else if(NominalUang > TotalHarga){
+            alert(`Terima kasih sudah berbelanja di toko kami \nUang kembalian anda adalah Rp ${NominalUang - TotalHarga}`)
+        }
+</script>
+</body>
+</html>

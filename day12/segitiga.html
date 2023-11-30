@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Segitiga</title>
+</head>
+
+<body>
+    Pilih Bentuk :
+    <br><br>
+    <!-- kalau select itu pakai id, karena dia cuma milih salah satu aja-->
+    <select id="bentuk">
+        <option value="0">Segitiga Rata Kiri</option>
+        <option value="1">Segitiga Rata Kanan</option>
+        <option value="2">Persegi</option>
+    </select><br><br>
+    <input type="number" placeholder="tinggi" id="tinggi">
+    <br><br>
+    <button onclick="onBentukClick()">
+        Bentuk
+    </button>
+    <br><br>
+    <!-- div itu literally kotak kosong. Yang bisa diisi, misal tulisan default -->
+    <div id='bintang'>
+        <!-- *<br>
+        **<br>
+        ***<br>
+        ****<br>
+        *****<br>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;***<br>
+        &nbsp;&nbsp;****<br>
+        *****<br>
+
+        <br>
+
+        *****<br>
+        *****<br>
+        *****<br>
+        *****<br>
+        *****<br> -->
+
+    </div>
+</body>
+<script>
+    function segitigaKiri(tinggi) { // param tinggi adalah input dari user
+        let bintang = ''
+
+        for (let i = 0; i < tinggi; i++) {
+            for (let j = 0; j <= i; j++) {
+                bintang += '*'
+            }
+            bintang += '<br>'
+        }
+        return bintang
+    }
+
+    function segitigaKanan(tinggi) { // param tinggi ini adalah parameter inputan dari user
+        var bintang = ''
+
+        for (var i = 0; i < tinggi; i++) {
+            for (var k = i; k < tinggi - 1; k++) {
+                bintang += '&nbsp;&nbsp;'
+            }
+            for (var j = 0; j <= i; j++) {
+                bintang += '*'
+            }
+
+            bintang += '<br>'
+        }
+        // console.log(bintang)
+        return bintang
+    }
+
+
+    function persegi(tinggi) {
+        var bintang = ''
+        for (var i = 0; i < tinggi; i++) {
+            for (var j = 0; j < tinggi; j++) {
+                bintang += '*'
+            }
+            bintang += '<br>'
+        }
+        return bintang
+    }
+
+    function onBentukClick() {
+        // bikin dulu variable bentuk dan tinggi karena kita akan pakai data dari kedua input itu. Untuk diklik di tombol bentuk pada HTML
+        var bentuk = document.getElementById('bentuk').value
+        var tinggi = document.getElementById('tinggi').value
+        var result
+        // lalu setelah itu buat perbandingnan untuk bentuk karena sifatnya adalah option
+        if (bentuk == 0) { // angka 0 didapat dari value pada option bentuk
+            result = segitigaKiri(tinggi)
+        } else if (bentuk == 1) {
+            result = segitigaKanan(tinggi)
+        } else {
+            result = persegi(tinggi)
+        }
+
+        document.getElementById('bintang').innerHTML = result // 'bintang didapat dari <div>, karena kotak atau tempat kosong yg dipakai untuk print data di HTML adalah <div>'
+    }
+</script>
+
+</html>

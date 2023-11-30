@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        tr,
+        td,
+        table,
+        th {
+            border-collapse: collapse;
+            border: 1px solid black;
+            padding: 5px
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1>To Do List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>Kegiatan</th>
+                    <th>Foto</th>
+                    <th>Hari</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+            <tbody id="renderData">
+
+                <td>
+                    input
+                </td>
+            </tbody>
+        </table>
+
+    </center>
+
+
+
+    <img src="" alt="">
+
+</body>
+<script>
+    // init value
+    var arrList = [
+        { no: 1, kegiatan: 'Belajar', foto: '<img src="https://static-s.aa-cdn.net/img/gp/20600008258254/zwOveNA_VqVjOVyETgrT6Mu_hGb9CSRShNhdhqIvXj7zm8LM3aDx7XxMrS6gd7eOSQ=w300?v=1" alt="">', hari: 'Senin' },
+        { no: 2, kegiatan: 'Berenang', foto: '<img src="https://pbs.twimg.com/profile_images/728401932847456257/MJAVNE1z_400x400.jpg" alt="">', hari: 'Selasa' },
+    ]
+
+
+    function printData() {
+        let result = arrList.map((val) => {
+            return `<tr>
+                        <td>${val.no}</td>
+                        <td>${val.kegiatan}</td>
+                        <td>${val.foto}</td>
+                        <td>${val.hari}</td>
+                        <td>
+                        <input type="button" value="Delete">
+                        <input type="button" value="Edit">
+                        </td>
+                    </tr>`
+        })
+        document.getElementById('renderData').innerHTML = result.join(' ')
+    }
+    printData()
+
+    function inputData() {
+        var inputkegiatan = document.getElementById('inputKegiatan').value
+        var inputgambar = document.getElementById('inputGambar').value
+    }
+</script>
+
+</html>

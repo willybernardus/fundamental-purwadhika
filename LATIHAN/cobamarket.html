@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market V 2.3</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Market V 2.3</h1>
+    </center>
+    <form action="">
+        <fieldset>
+            <legend>Filter</legend>
+            Nama : <input type="text" placeholder="nama" id="nama" oninput="onNamaInput()">
+            <br><br>
+            Harga : <input type="number" id="min" placeholder="min" onkeyup="onHargaUp()"> - <input type="number"
+                id="max" placeholder="max" onkeyup="onHargaUp()">
+            <br><br>
+            Kategori :
+            <select name="" id="kategori" onchange="onKategoriChange()">
+                <option value="0">All</option>
+                <option value="1">Baju</option>
+                <option value="2">Buah</option>
+                <option value="3">Elektronik</option>
+                <option value="4">Fast Food</option>
+            </select>
+            <br><br>
+            <button type="reset">Reset</button>
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>Input Data</legend>
+            <table>
+                <tr>
+                    <th><input type="text" placeholder="nama" id="inputNama"></th>
+                    <th><input type="number" placeholder="harga" id="inputHarga"></th>
+                    <th><select id="inputKategori">
+                            <option value="" hidden>pilih kategori</option>
+                            <option value="Baju">Baju</option>
+                            <option value="Buah">Buah</option>
+                            <option value="Elektronik">Elektronik</option>
+                            <option value="Fast Food">Fast Food</option>
+                        </select></th>
+                    <th><input type="number" placeholder="stok" id="inputStok"></th>
+                </tr>
+            </table>
+            <br>
+            <input type="button" value="input" onclick="inputData()">
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>Tabel Data</legend>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Kategori</th>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                    <th>Buy</th>
+                    <th>Action</th>
+                </tr>
+                <tbody id="renderData">
+
+                </tbody>
+            </table>
+            <br>
+        </fieldset>
+    </form>
+    <form action="">
+        <fieldset>
+            <legend>Cart</legend>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Kategori</th>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th>Action</th>
+                </tr>
+                <tbody id="renderCart">
+
+                </tbody>
+            </table>
+            <br>
+            <input type="button" value="Payment" onclick="printPayment()">
+            <br>
+        </fieldset>
+        <fieldset>
+            <legend>Payment</legend>
+            <h2>Transaction Detail</h2>
+            <div id="payment">
+
+            </div>
+        </fieldset>
+    </form>
+</body>
+<script src="/LATIHAN/cobamarket.js"></script>
+
+</html>

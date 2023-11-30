@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market 2.1</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h1>MARKET V2.1</h1>
+        <fieldset>
+            <legend>Filter</legend>
+            Nama : <input type="text" id='nama' placeholder="nama" oninput="onNamaInput()"> <br><br>
+            Harga : <input type="number" id='min' placeholder="min" onkeyup="OnPriceUp()"> - <input type="number"
+                id='max' placeholder="max" onkeyup="OnPriceUp()"> <br><br>
+            Kategori :
+            <select onchange="onKategoriChange()" id='kategori'>
+
+            </select> <br> <br>
+            <input type="button" value="Reset" onclick="Reset()">
+        </fieldset>
+        <fieldset>
+            <legend>Input Data</legend>
+            <table>
+                <tr>
+                    <th><input type="text" placeholder="nama" id="inputnama"></th>
+                    <th><input type="number" placeholder="harga" id="inputharga"></th>
+                    <th>
+                        <select id="inputkategori">
+
+                        </select>
+                    </th>
+                    <th>
+                        <input type="number" placeholder="stok" id="inputstok">
+                    </th>
+                </tr>
+            </table>
+            <br>
+            <input type="button" value="Input" onclick="SubmitData()">
+        </fieldset>
+        <fieldset>
+            <legend>Tabel Data</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori</th>
+                        <th>Nama</th>
+                        <th>Harga</th>
+                        <th>Stock</th>
+                        <th>Buy</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id='renderData'>
+
+                </tbody>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Cart</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Kategori</th>
+                        <th>Nama</th>
+                        <th>Harga</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id='renderCart'>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <input type="button" value="Payment" onclick="payment()">
+        </fieldset>
+        <fieldset>
+            <legend>Payment</legend>
+            <h2>Transcation Detail</h2>
+        </fieldset>
+    </form>
+</body>
+
+<script src="./pr_marketv2.2.js"></script>
+
+</html>

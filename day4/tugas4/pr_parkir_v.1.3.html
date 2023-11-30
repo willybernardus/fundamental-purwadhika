@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Parkir V.1.3 </title></head>
+    <script>
+    // PR buat proteksi input untuk mobil dan motor, input jam masuk dan keluar terus input am dan pm     
+    var kendaraan=prompt('Masukan tipe kendaraan anda:\n1. Mobil\n2. Motor')
+    while((kendaraan != 1) && (kendaraan != 2)){
+        alert('Data yang anda input salah!')
+        kendaraan=prompt('Masukan tipe kendaraan anda:\n1. Mobil\n2. Motor')      
+    }
+    var masuk = prompt('Masuk jam berapa: (0-11)')
+    while((masuk > 11) && (masuk < 0)){
+        alert('Data yang anda input salah!')
+        masuk = prompt('Masuk jam berapa: (0-11)')
+    }
+    var kondisimasuk =prompt('Masukan kondisi masuk: \n1. PM\n2. AM')
+    while((kondisimasuk != 1) && (kondisimasuk != 2)){
+        alert('Data yang anda input salah!')
+        kondisimasuk=prompt('Mohon masukan kondisi masuk: \n1. PM\n2. AM')
+    } 
+    var keluar = prompt('Kelaur jam berapa (0-11)')
+    while(keluar > 11){
+        alert('Data yang anda input salah!')
+        keluar = prompt('Kelaur jam berapa (0-11)')
+    }
+    var kondisikeluar =prompt('Masukan kondisi keluar: \n1. PM\n2. AM')
+    while((kondisikeluar != 1) && (kondisikeluar != 2)){
+        alert('Data yang anda input salah!')
+        kondisikeluar =prompt('Masukan kondisi keluar: \n1.PM\n2.AM')
+    }
+    var hargaperjam 
+    var harga2jampertama
+    if(kendaraan == 1){
+        hargaperjam=2000
+        harga2jampertama=4000
+    }else if(kendaraan == 2){
+        hargaperjam=1000
+        harga2jampertama=2000
+    }
+    var durasiparkir=keluar-masuk
+    if(kondisimasuk != kondisikeluar){
+        durasiparkir+=12
+    }else if((keluar<=masuk) && (kondisimasuk==kondisikeluar)){
+        durasiparkir+=24
+    }
+    var total
+    if(durasiparkir <= 2){
+        total=harga2jampertama
+    }else{
+        total=durasiparkir*hargaperjam
+    }
+    alert(`Juamlah yang harus anda bayar adalah Rp ${total} dan anda parkir ${durasiparkir} jam`)
+    </script>
+</html>
